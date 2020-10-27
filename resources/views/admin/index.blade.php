@@ -275,6 +275,26 @@
 
             <!--end::Portlet-->
 
+            <!--begin::Portlet-->
+            <div class="kt-portlet">
+                <div class="kt-portlet__head">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                            Total disease of season
+                        </h3>
+                    </div>
+                </div>
+
+                <!--begin::Form-->
+
+                <div class="kt-portlet__body">
+                    <canvas id="myChart2" width="350" height="100"></canvas>
+                </div>
+
+            </div>
+
+            <!--end::Portlet-->
+
 
         <!-- end:: Content -->
         </div>
@@ -416,6 +436,46 @@
                 datasets: [{
                     label: '# Number of Disease',
                     data: datas,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctx2 = document.getElementById('myChart2').getContext('2d');
+        var season_count = @json($season_count_array);
+        var season_name = @json($season_name_array);
+        var myChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: season_name,
+                datasets: [{
+                    label: '# Number of Disease',
+                    data: season_count,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

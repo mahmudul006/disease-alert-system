@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Disease;
 use App\PatientDisease;
+use App\Season;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -21,6 +22,7 @@ class AdminDashboardController extends Controller
         $start_date = Carbon::now()->format('Y-m-d 00:00:00');
         $end_date = Carbon::now()->format('Y-m-d 23:59:59');
 
+
         $disease_name = Disease::select('disease_name')
             ->distinct()
             ->join('patient_diseases','patient_diseases.disease_id','diseases.id')
@@ -32,11 +34,21 @@ class AdminDashboardController extends Controller
             ->whereBetween('created_at',[$start_date, $end_date])
             ->get();
 
+
+        $season_name = Season::select('name')
+            ->distinct()
+            ->join('patient_diseases','patient_diseases.season_id','seasons.id')
+            ->whereBetween('patient_diseases.created_at',[$start_date, $end_date])
+            ->get();
+        $season_count =  DB::select(DB::raw("SELECT COUNT(disease_id) as disease_count from patient_diseases GROUP BY season_id"));
+
         /**
          * Database object to Array
          */
         $ne=array();
         $me=array();
+        $season_count_array = array();
+        $season_name_array = array();
         $i=0;
         foreach ($disease_name as $disease)
         {
@@ -49,7 +61,20 @@ class AdminDashboardController extends Controller
             $me[$i] = $disease_coun->disease_count;
             $i++;
         }
+        $i=0;
+        foreach ($season_name as $season)
+        {
+            $season_name_array[$i] = $season->name;
+            $i++;
+        }
+        $i=0;
+        foreach ($season_count as $season_count)
+        {
+            $season_count_array[$i] = $season_count->disease_count;
+            $i++;
+        }
 
-        return view('admin.index',compact('me','ne'));
+
+        return view('admin.index',compact('me','ne','season_name_array','season_count_array'));
     }
 }
