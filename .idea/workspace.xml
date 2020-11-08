@@ -3,10 +3,29 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6c5d355b-48e0-43bf-b625-bb2ce916f0b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminDashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,12 +220,24 @@
       <workItem from="1604517187107" duration="376000" />
       <workItem from="1604520386856" duration="1237000" />
       <workItem from="1604553275343" duration="337000" />
-      <workItem from="1604842282491" duration="84000" />
+      <workItem from="1604842282491" duration="214000" />
+      <workItem from="1604843741725" duration="3586000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="707" y="387" key="#Notifications" timestamp="1604553334525">
@@ -230,14 +261,18 @@
     </state>
     <state x="469" y="190" key="SettingsEditor/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604516094359" />
     <state x="171" y="38" key="SettingsEditor/0.23.1280.777@0.23.1280.777" timestamp="1604521518536" />
+    <state width="566" height="445" key="SwitcherDM" timestamp="1604845898545">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="566" height="445" key="SwitcherDM/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604845898545" />
     <state x="372" y="192" width="971" height="776" key="find.popup" timestamp="1604553741096">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="372" y="192" width="971" height="776" key="find.popup/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604553741096" />
-    <state x="458" y="160" width="1005" height="920" key="search.everywhere.popup" timestamp="1604553737609">
+    <state x="458" y="160" width="1005" height="920" key="search.everywhere.popup" timestamp="1604845765134">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="458" y="160" width="1005" height="920" key="search.everywhere.popup/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604553737609" />
+    <state x="458" y="160" width="1005" height="920" key="search.everywhere.popup/-1440.203.1440.877/0.23.1920.1057@0.23.1920.1057" timestamp="1604845765134" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.23.1280.777@0.23.1280.777" timestamp="1604521474822" />
   </component>
 </project>

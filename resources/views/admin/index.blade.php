@@ -427,8 +427,8 @@
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        var datas = @json($me);
-        var dis = @json($ne);
+        var datas = @json($disease_count_array);
+        var dis = @json($disease_name_array);
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
