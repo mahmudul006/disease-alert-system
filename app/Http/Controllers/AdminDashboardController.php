@@ -24,20 +24,22 @@ class AdminDashboardController extends Controller
             ->whereBetween('created_at',[$start_date, $end_date])
             ->get();
 
-        $season_name_array = Season::select( 'name' )->distinct()->join('patient_diseases','patient_diseases.season_id','seasons.id')->get()->pluck('name');
-        $season_counts =  DB::select(DB::raw("SELECT COUNT(disease_id) as disease_count from patient_diseases GROUP BY season_id"));
+        $season_names = Season::select( 'name' )
+            ->distinct()
+            ->join('patient_diseases','patient_diseases.season_id','seasons.id')
+            ->get()
+            ->pluck('name');
+
+        $season_counts = PatientDisease::select(DB::raw('count(disease_id) as disease_count'))
+            ->groupBy( 'season_id' )
+            ->get()
+            ->pluck('disease_count');
 
         /**
          * Database object to Array
          */
         $disease_name_array = [];
         $disease_count_array = [];
-        $season_count_array = [];
-
-        foreach ($season_counts as $season_count)
-        {
-            $season_count_array[] = $season_count->disease_count;
-        }
 
         foreach ( $disease_counts as $disease_count )
         {
@@ -47,6 +49,6 @@ class AdminDashboardController extends Controller
             $disease_name_array[] = $dis_nam->disease_name;
         }
 
-        return view('admin.index',compact('disease_count_array','disease_name_array','season_name_array','season_count_array'));
+        return view('admin.index',compact('disease_count_array','disease_name_array','season_names','season_counts'));
     }
 }

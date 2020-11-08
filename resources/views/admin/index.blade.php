@@ -467,8 +467,8 @@
         });
 
         var ctx2 = document.getElementById('myChart2').getContext('2d');
-        var season_count = @json($season_count_array);
-        var season_name = @json($season_name_array);
+        var season_count = @json($season_counts);
+        var season_name = @json($season_names);
         var myChart = new Chart(ctx2, {
             type: 'line',
             data: {
